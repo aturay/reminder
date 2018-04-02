@@ -1,0 +1,28 @@
+<div class="form">
+  <div class="tab-content">
+    <div id="reset_password">
+      <h1>Resend confirmation instructions</h1>
+
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <!-- errors -->
+        <ul class="tab-group">
+          <li class="tab active"><%= devise_error_messages! %></li>
+        </ul>
+
+        <!-- email -->
+        <div class="field-wrap">
+          <%= f.label :email, 'Email Address<span class="req">*</span>'.html_safe %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "off", required: true,
+          value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
+
+        <!-- links -->
+        <%= render "users/shared/links" %>
+
+        <!-- action -->
+        <%= f.submit "Resend confirmation", class: "button button-block" %>
+      <% end %>
+
+    </div>
+  </div><!-- tab-content -->
+</div> <!-- /form -->

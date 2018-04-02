@@ -1,0 +1,36 @@
+<%= form_with(model: note, local: true) do |form| %>
+  <% if note.errors.any? %>
+    <div id="error_explanation" class="tab-group">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- text area -->
+  <div class="field-wrap">
+    <em><%= t("activerecord.attributes.note.text") %></em>
+    <%= form.text_area :text, required: true, autofocus: true %>
+  </div>
+
+  <!-- send time -->
+  <div class="field-wrap">
+    <em><%= t("activerecord.attributes.note.send_time") %></em><br>
+    <%= form.datetime_select :send_time %>
+  </div>
+
+  <!-- interval count-->
+  <div class="field-wrap">
+    <em><%= t("activerecord.attributes.note.interval") %></em><br>
+    <%= form.number_field :interval_count, min: 0, max: 100 %>
+    <%= form.select :interval_type, Note.interval_types.keys %>
+  </div>
+
+  <!-- action -->
+  <%= form.submit class: "button button-block" %>
+  <br>
+<% end %>

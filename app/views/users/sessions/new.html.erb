@@ -1,0 +1,41 @@
+<div class="form">
+  <div class="tab-content">
+    <div id="login">
+      <h1>Log in</h1>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <!-- errors -->
+        <ul class="tab-group">
+          <li class="tab active"><%= devise_error_messages! %></li>
+        </ul>
+
+        <!-- email -->
+        <div class="field-wrap">
+          <%= f.label :email, 'Email Address<span class="req">*</span>'.html_safe %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+        </div>
+
+        <!-- password -->
+        <div class="field-wrap">
+          <%= f.label :password, 'Password<span class="req">*</span>'.html_safe %>
+          <%= f.password_field :password, autocomplete: "off", required: true %>
+        </div>
+
+        <!-- remember -->
+        <% if devise_mapping.rememberable? -%>
+          <div class="field-wrap remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+
+        <!-- links -->
+        <%= render "users/shared/links" %>
+
+        <!-- action -->
+        <%= f.submit "Log In", class: "button button-block" %>
+      <% end %>
+
+    </div>
+  </div><!-- tab-content -->
+</div> <!-- /form -->

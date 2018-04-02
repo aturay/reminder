@@ -1,0 +1,42 @@
+<div class="form">
+  <div class="tab-content">
+    <div id="signup">
+      <h1>Sign Up</h1>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <!-- errors -->
+        <ul class="tab-group">
+          <li class="tab"><%= devise_error_messages! %></li>
+        </ul>
+
+        <!-- email -->
+        <div class="field-wrap">
+          <%= f.label :email, 'Email Address<span class="req">*</span>'.html_safe %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "off", required: true %>
+        </div>
+
+        <!-- password -->
+        <div class="field-wrap">
+          <%= f.label :password, 'Password<span class="req">*</span>'.html_safe %>
+          <%= f.password_field :password, autocomplete: "off", required: true %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+        </div>
+
+        <!-- password confirmation -->
+        <div class="field-wrap">
+          <%= f.label :password_confirmation, 'Password Confirmation<span class="req">*</span>'.html_safe %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", required: true %>
+        </div>
+
+        <!-- links -->
+        <%= render "users/shared/links" %>
+
+        <!-- action -->
+        <%= f.submit "Sign Up", class: "button button-block" %>
+      <% end %>
+
+    </div>
+  </div><!-- tab-content -->
+</div> <!-- /form -->

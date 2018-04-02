@@ -1,0 +1,34 @@
+<div class="form index">
+  <div class="tab-content">
+    <h1><%= t('activerecord.models.note.other') %></h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.note.text') %></th>
+          <th><%= t('activerecord.attributes.note.send_time') %></th>
+          <th><%= t('activerecord.attributes.note.interval') %></th>
+          <th><%= t('activerecord.attributes.note.next_time') %></th>
+          <th colspan="3"><%= link_to t('note.new_note'), new_note_path, class: 'btn' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+            <td><%= note.text %></td>
+            <td><%= note.send_time %></td>
+            <td><%= "#{note.interval_count} #{note.interval_type}" %></td>
+            <td><%= note.next_time %></td>
+
+            <!-- actions -->
+            <td><%= link_to t('show'), note, class: 'btn' %></td>
+            <td><%= link_to t('edit'), edit_note_path(note), class: 'btn' %></td>
+            <td><%= link_to t('destroy'), note, method: :delete, data: { confirm: t('you_sure?') }, class: 'btn' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+  </div><!-- tab-content -->
+</div> <!-- /form -->

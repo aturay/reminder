@@ -1,0 +1,14 @@
+<div class="form">
+  <div class="tab-content">
+    <h1><%= t("note.edit") %></h1>
+
+    <%= render 'form', note: @note %>
+
+    <!-- button -->
+    <ul class="tab-group">
+      <li class="tab"><%= link_to t('show'), @note %></li>
+      <li class="tab"><%= link_to t('back'), notes_path %></li>
+    </ul>
+
+  </div><!-- tab-content -->
+</div> <!-- /form -->

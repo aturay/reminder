@@ -1,0 +1,9 @@
+<h1><%= t('activerecord.models.note.one') %></h1>
+
+<p><%= @note.text %></p>
+
+<b><%= t('activerecord.attributes.note.interval') %>: <%= " #{@note.interval_count} #{@note.interval_type}"%></b>
+<br>
+<i><%= t('activerecord.attributes.note.next_time') %>: <%= @note.next_time %></i>
+
+<p><%= link_to t('note.show'), @note, target: :_blank %></p>

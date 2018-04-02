@@ -1,0 +1,46 @@
+en:
+  # application.html
+  log_in: 'Log out'
+  destroy: 'Destroy'
+  you_sure?: 'You sure?'
+
+  show: 'Show'
+  edit: 'Edit'
+  destroy: 'Destroy'
+  back: 'Back'
+
+  note:
+    show: 'Show note'
+    edit: 'Edit note'
+    new_note: 'New Note'
+  notes:
+    create:
+      success: 'note was successfully created.'
+    update:
+      success: 'note was successfully updated.'
+    destroy:
+      success: 'note was successfully destroyed.'
+
+  activerecord:
+    models:
+      note:
+        one: "Notе"
+        few: "Notes"
+        many: "Notes"
+        other: "Notes"
+    attributes:
+      note:
+        text:
+        send_time:
+        next_time:
+        interval:
+        interval_count:
+        interval_type:
+        user_id:
+        interval_types:
+          hours:
+          day:
+          week:
+          month:
+          year:
+

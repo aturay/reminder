@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reminder</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="header">
+      <!-- notice -->
+      <p id="notice"><%= notice %></p>
+
+      <!-- current user actions -->
+      <%- if user_signed_in? %>
+        <ul>
+          <li><%= link_to t(:log_in), destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to t(:destroy), user_registration_path, method: :delete, data: { confirm: t(:you_sure?) } %></li>
+        </ul>
+      <%- end %>
+
+      <!-- Locale -->
+      <div class="locale">
+        <%- I18n.available_locales.each do |lng| %>
+          <%= link_to lng, "#{request.path}?locale=#{lng}", class: ('active' if I18n.locale == lng) %>
+        <% end -%>
+      </div>
+
+      <!-- clear -->
+      <div class="clear"></div>
+    </header>
+
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<div class="form">
+
+  <div class="tab-content">
+    <div class="field-wrap">
+      <table>
+        <tr>
+          <td><%= t('activerecord.attributes.note.text') %>: </td>
+          <td><%= @note.text %></td>
+        </tr>
+        <tr>
+          <td><%= t('activerecord.attributes.note.send_time') %>: </td>
+          <td><%= @note.send_time %></td>
+        </tr>
+        <tr>
+          <td><%= t('activerecord.attributes.note.interval') %>: </td>
+          <td><%= "#{@note.interval_count} #{@note.interval_type}" %></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- button -->
+    <ul class="tab-group">
+      <li class="tab"><%= link_to t('edit'), edit_note_path(@note) %></li>
+      <li class="tab"><%= link_to t('back'), notes_path %></li>
+    </ul>
+
+  </div><!-- tab-content -->
+</div> <!-- /form -->
